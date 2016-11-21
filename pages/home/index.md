@@ -1,10 +1,10 @@
 ---
-title: React Static Boilerplate
+title: Sandesh Soni
 ---
 
 ## Welcome!
 
-This is a single-page application powered by React and Material Design Lite (MDL).
+Fullstack Consultant from India
 
-https://github.com/kriasoft/react-static-boilerplate
+https://github.com/sandeshsoni
 
