@@ -4,7 +4,7 @@
     "page": "./pages/home",
     "chunk": "main",
     "data": {
-      "articles": "GET https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json"
+      "articles": "GET https://gist.githubusercontent.com/sandeshsoni/712e06bbe02c5baee85cef2fe3ffff64/raw/c9748abb834ed7d94c8aa6b975c71579832ad60b/blog_articles.json"
     }
   },
   {
