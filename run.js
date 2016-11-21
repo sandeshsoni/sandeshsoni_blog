@@ -14,11 +14,12 @@ const fs = require('fs');
 const del = require('del');
 const ejs = require('ejs');
 const webpack = require('webpack');
+const path = require('path');
 
 // TODO: Update configuration settings
 const config = {
-  title: 'React Static Boilerplate',        // Your website title
-  url: 'https://rsb.kriasoft.com',          // Your website URL
+  title: 'Sandesh Soni, Freelance consultant - Ruby on Rails, Elixir, ReactJS',        // Your website title
+  url: 'https://www.sandeshsoni.com',          // Your website URL
   project: 'react-static-boilerplate',      // Firebase project. See README.md -> How to Deploy
   trackingID: 'UA-XXXXX-Y',                 // Google Analytics Site's ID
 };
@@ -30,7 +31,7 @@ function run(task) {
   console.log(`Starting '${task}'...`);
   return Promise.resolve().then(() => tasks.get(task)()).then(() => {
     console.log(`Finished '${task}' after ${new Date().getTime() - start.getTime()}ms`);
-  }, err => console.error(err.stack));
+  }, err => console.error(`Failed in ${task}`));
 }
 
 //
@@ -95,7 +96,7 @@ tasks.set('build', () => {
 //
 // Build and publish the website
 // -----------------------------------------------------------------------------
-tasks.set('publish', () => {
+tasks.set('publishToFirebase', () => {
   const firebase = require('firebase-tools');
   return run('build')
     .then(() => firebase.login({ nonInteractive: false }))
@@ -105,6 +106,27 @@ tasks.set('publish', () => {
     }))
     .then(() => { setTimeout(() => process.exit()); });
 });
+
+tasks.set('publish', () => {
+  const ghPages = require('gh-pages');
+  global.DEBUG = process.argv.includes('--debug') || false;
+  const publish = (dir) => new Promise((resolve, reject) => {
+    ghPages.publish(dir, {}, (err) => {
+      if (err) {
+        console.log("err in publish : ", err);
+        reject();
+      } else {
+        resolve();
+      }
+    });
+  });
+
+  return Promise.resolve()
+  .then(() => run('clean'))
+  .then(() => run('build'))
+  .then(() => publish(path.join(__dirname, 'public')));
+});
+
 
 //
 // Build website and launch it in a browser for testing (default)
