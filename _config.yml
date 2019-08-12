@@ -19,8 +19,11 @@ description: >- # this means to ignore newlines until "baseurl:"
   Fullstack consultant. Elixir ELM Reactjs. Working remotely from Pune, India.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+email: hello@sandeshsoni.com
 twitter_username: iamsandeshsoni
 github_username:  sandeshsoni
+linkedin_username: sandeshsoni
+telegram_username: sandeshsoni
 
 # Build settings
 markdown: kramdown
@@ -31,11 +34,16 @@ plugins:
   - jekyll-seo-tag
   - jekyll-analytics
 
+sass:
+    style: compressed
 
 jekyll_analytics:
   GoogleAnalytics:          # Add, if you want to track with Google Analytics
     id: UA-135632177-1         # Required - replace with your tracking id
     anonymizeIp: false
+
+
+permalink: none
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
