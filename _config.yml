@@ -27,6 +27,8 @@ telegram_username: sandeshsoni
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+
 theme: minima
 plugins:
   - jekyll-feed
@@ -44,6 +46,7 @@ jekyll_analytics:
 
 
 permalink: none
+show_excerpts: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
