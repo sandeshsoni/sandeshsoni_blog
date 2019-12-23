@@ -19,8 +19,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Freelance Elixir developer. Built tetris kachori game and course. Fullstack consultant. Elixir ELM Reactjs.
   Working remotely from Pune, India.
   
-# baseurl: "" # the subpath of your site, e.g. /blog
-# url: "http://sandeshsoni.com" # te base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://www.sandeshsoni.com" # te base hostname & protocol for your site, e.g. http://example.com
 email: hello@sandeshsoni.com
 twitter_username: iamsandeshsoni
 github_username:  sandeshsoni
