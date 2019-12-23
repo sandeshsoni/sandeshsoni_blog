@@ -31,7 +31,8 @@ telegram_username: sandeshsoni
 markdown: kramdown
 highlighter: rouge
 
-theme: jekyll-theme-minimal
+theme: minima
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
