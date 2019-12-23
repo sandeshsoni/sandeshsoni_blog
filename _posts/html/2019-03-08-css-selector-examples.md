@@ -8,21 +8,21 @@ tags: css tutorial css-selectors
 # Example with and with selectors
 
 
-```
+```css
   .class .all-kids {
  // one
  }
 ```
 
 
-```
+```html
   .class > .child {
   // two
   }
 ```
 This selects only the children and not the grandchildren.
 
-```
+```css
   .container ~ sibling {
   // three
   }
