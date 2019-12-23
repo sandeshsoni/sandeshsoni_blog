@@ -39,25 +39,8 @@ iex(4)>
 ```
 
 
-output as
-```iex
-iex(3)> :erlang.memory()
-[
-total: 34089608,
-processes: 6655800,
-processes_used: 6654840,
-system: 27433808,
-atom: 654241,
-atom_used: 636936,
-binary: 2595088,
-code: 12227925,
-ets: 1348328
-]
-iex(4)>
-```
-
 or 
-```
+```elixir
 :erlang.system_info/1
 ```
 
