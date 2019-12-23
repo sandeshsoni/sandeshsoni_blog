@@ -13,12 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Sandesh Soni | fullstack contract developer
-email: your-email@example.com
+title: Sandesh Soni | Elixir developer
+email: hello@sandeshsoni.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Fullstack consultant. Elixir ELM Reactjs. Working remotely from Pune, India.
+  Freelance Elixir developer. Built tetris kachori game and course. Fullstack consultant. Elixir ELM Reactjs.
+  Working remotely from Pune, India.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://sandeshsoni.com" # the base hostname & protocol for your site, e.g. http://example.com
 email: hello@sandeshsoni.com
 twitter_username: iamsandeshsoni
 github_username:  sandeshsoni
