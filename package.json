@@ -10,10 +10,6 @@
   "scripts": {
     "deploy": "gh-pages -d dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sandeshsoni/sandeshsoni_blog.git"
-  },
   "author": "Sandesh Soni",
   "license": "ISC",
   "bugs": {
