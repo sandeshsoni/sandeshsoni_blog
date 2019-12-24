@@ -20,8 +20,8 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-  # theme: jekyll-theme-cayman
-  remote_theme: hanuman
+  theme: jekyll-theme-cayman
+  # remote_theme: hanuman
   #theme: minima
   # theme: hanuman
 
