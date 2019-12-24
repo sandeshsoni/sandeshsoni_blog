@@ -20,8 +20,6 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-  # theme: jekyll-theme-cayman
-  # remote_theme: hanuman
 theme: minima
   # theme: hanuman
 
@@ -41,7 +39,7 @@ jekyll_analytics:
 
     # analytics_id: UA-135632177-1
 
-    permalink: /:title
+    permalink: none
 show_excerpts: true
 
 # Exclude from processing.
