@@ -20,10 +20,12 @@ kramdown:
   hard_wrap: false
 
 
-  #theme: minima
-theme: hanuman
+# theme: minima
+# theme: hanuman
+remote_theme: "hanuman"
 
 plugins:
+  - jekyll-remote-theme  
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
