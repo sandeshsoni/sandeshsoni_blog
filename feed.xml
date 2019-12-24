@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://www.sandeshsoni.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://www.sandeshsoni.com/" rel="alternate" type="text/html" /><updated>2019-12-24T23:18:49+05:30</updated><id>http://www.sandeshsoni.com/feed.xml</id><title type="html">Sandesh Soni | Elixir developer</title><subtitle>Freelance Elixir developer. Built tetris kachori game and course. Fullstack consultant. Elixir ELM Reactjs. Working remotely from Pune, India.</subtitle><entry><title type="html">regular expressions with Elixir</title><link href="http://www.sandeshsoni.com/regex-with-elixir" rel="alternate" type="text/html" title="regular expressions with Elixir" /><published>2019-10-18T00:00:00+05:30</published><updated>2019-10-18T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/regex-with-elixir</id><content type="html" xml:base="http://www.sandeshsoni.com/regex-with-elixir">&lt;p&gt;I am building readrose app which is a quick bookmarking tool.
+I wanted automatic classification of url.&lt;/p&gt;
+
+&lt;p&gt;As an end user, I will just bookmark the url and when I view it on my list of bookmarks, I expect them to be grouped together nicely and mention which tweets I have booked… which twitter handles or which blog posts.&lt;/p&gt;
+
+&lt;p&gt;I decided to use Regex and this is the beginning of story.&lt;/p&gt;
+
+&lt;p&gt;Regex in elixir is same as in any another languages.
+Elixir does have something additional that can help more.&lt;/p&gt;
+
+&lt;p&gt;Let us play from the scratch.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;str1 = abc 123 456&lt;/code&gt;
+I want number from the string.
+So, my regex will be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;expr = r\d\d\d&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;str1 = abc 123 456&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;str2 = abc 123-456&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;str2 = abc 123=456&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;So, if I bookmark a tweet, I will be able to see link to tweet as well as an individual link to author’ profile.&lt;/p&gt;
+
+&lt;p&gt;references
+very useful youtube video, worth investing 46 minutes.&lt;/p&gt;</content><author><name>Sandesh</name></author><summary type="html">I am building readrose app which is a quick bookmarking tool. I wanted automatic classification of url.</summary></entry><entry><title type="html">debug, monitor performance issues of elixir phoenix production app</title><link href="http://www.sandeshsoni.com/performace-tracking-elixir-app-in-production" rel="alternate" type="text/html" title="debug, monitor performance issues of elixir phoenix production app" /><published>2019-09-10T00:00:00+05:30</published><updated>2019-09-10T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/performace-tracking-elixir-app-in-production</id><content type="html" xml:base="http://www.sandeshsoni.com/performace-tracking-elixir-app-in-production">&lt;p&gt;The tetris-Kachori app lags in production. I can feel the screen freezing for a fraction of time. Everything works smoothly in development.
+So I started to find ways to debug and understand what might be going wrong.&lt;/p&gt;
+
+&lt;p&gt;The first thought, my app is taking more RAM.&lt;/p&gt;
+
+&lt;p&gt;How much RAM my app consumes?
+Locally I can check using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;top&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;htop&lt;/code&gt; but can I check within the app?&lt;/p&gt;
+
+&lt;p&gt;The first thing I came across, use below syntax.&lt;/p&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;:erlang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;memory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;output as&lt;/p&gt;
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:erlang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;memory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;total:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;34089608&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;processes:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6655800&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;processes_used:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6654840&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;system:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;27433808&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;atom:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;654241&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;atom_used:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;636936&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;binary:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2595088&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;code:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12227925&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;ets:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1348328&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;:erlang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system_info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So the conclusion, I need to collect metrics about machine and send it somewhere.. like Prometheus, DataDog, etc.&lt;/p&gt;
+
+&lt;p&gt;How?&lt;/p&gt;
+
+&lt;p&gt;use Telemetry and opencensus.
+Telemetry-metrics, &lt;a href=&quot;https://github.com/beam-telemetry/telemetry_poller&quot;&gt;Telemetry pooler&lt;/a&gt;, &lt;a href=&quot;https://github.com/opencensus-beam/opencensus_telemetry&quot;&gt;Opencensus Telemetry&lt;/a&gt;, oc_datadog, etc.
+Telemetry polling to send more information.
+I see possibility to send how many connections are open at the point.&lt;/p&gt;
+
+&lt;p&gt;I can use DataDog and few other paid services.
+I read a few topics on ElixirForum mentioning integrating logging facilit of Elixir.&lt;/p&gt;
+
+&lt;p&gt;I understand few people are using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Statix&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Instruments&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The end output I expect, I should see metrics in understandable format.  how much RAM was consumed with number of open connections with time. And possibly mention github tag so I undertand which solution improved performance.&lt;/p&gt;
+
+&lt;p&gt;Thats my journey so far.
+Exploring more.&lt;/p&gt;
+
+&lt;p&gt;I will be reading &lt;a href=&quot;https://www.erlang-in-anger.com/&quot;&gt;Erlang In Anger&lt;/a&gt;&lt;/p&gt;</content><author><name>Sandesh</name></author><category term="elixir" /><category term="telemetry" /><category term="monitoring" /><category term="logging" /><category term="metrics" /><summary type="html">The tetris-Kachori app lags in production. I can feel the screen freezing for a fraction of time. Everything works smoothly in development. So I started to find ways to debug and understand what might be going wrong.</summary></entry><entry><title type="html">creating course on Elixir Phoenix LiveView. build tetris game</title><link href="http://www.sandeshsoni.com/build-tetris-kachori-elixir-course" rel="alternate" type="text/html" title="creating course on Elixir Phoenix LiveView. build tetris game" /><published>2019-09-03T00:00:00+05:30</published><updated>2019-09-03T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/build-tetris-kachori-elixir-course</id><content type="html" xml:base="http://www.sandeshsoni.com/build-tetris-kachori-elixir-course">&lt;p&gt;I am build the course here. Link to videos here.
+&lt;a href=&quot;/elixir-phoenix-liveview-build-tetris-kachori-game-free-course/&quot;&gt;Elixir course here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The most import thing was to ship videos as soon as possible, however it were. And then keep improving them with iterations and feedback.&lt;/p&gt;
+
+&lt;p&gt;I used following tools.
+I tried to make the videos more clear and readable code.&lt;/p&gt;
+
+&lt;p&gt;I was not sure if to host the video course.
+Options in my mind were Udemy, Teachable, Gumroad or YouTube.&lt;/p&gt;
+
+&lt;p&gt;As the videos are going to updated in Iterations with time, YouTube was not a viable option. So I self hosted the videos and stream them online.&lt;/p&gt;
+
+&lt;p&gt;The videos are played 4X speed. sometime even 8X speed.&lt;/p&gt;
+
+&lt;p&gt;I used iMovie, HandBrake for video compression. But then maintaining quality was issue.
+Friends also suggested use DaVinci code.&lt;/p&gt;
+
+&lt;p&gt;Audio, I still need to add audio voiceover and update the videos.&lt;/p&gt;</content><author><name>Sandesh</name></author><category term="phoenix" /><category term="liveview" /><category term="phrenzy" /><category term="tetris" /><summary type="html">I am build the course here. Link to videos here. Elixir course here</summary></entry><entry><title type="html">Understanding protocol and behaviours in Elixir with Tetris.</title><link href="http://www.sandeshsoni.com/understanding-polymorphism-protocol-vs-behaviour-in-elixir" rel="alternate" type="text/html" title="Understanding protocol and behaviours in Elixir with Tetris." /><published>2019-09-01T09:30:00+05:30</published><updated>2019-09-01T09:30:00+05:30</updated><id>http://www.sandeshsoni.com/understanding-polymorphism--protocol-vs-behaviour-in-elixir</id><content type="html" xml:base="http://www.sandeshsoni.com/understanding-polymorphism-protocol-vs-behaviour-in-elixir">&lt;p&gt;Behaviour and Protocol in elixir. Polymorphism&lt;/p&gt;
+
+&lt;p&gt;Understanding protocol and behaviours in Elixir with tetris.&lt;/p&gt;
+
+&lt;p&gt;I have different kinds of Shapes including s_shape, box_shape, t-shape, etc. At the end, all are Shapes.&lt;/p&gt;
+
+&lt;p&gt;I can have 3 modes of rotation.&lt;/p&gt;
+
+&lt;p&gt;1&amp;gt; Just rotate. same shape in different angle. [RegularRotate]&lt;/p&gt;
+
+&lt;p&gt;2&amp;gt; Rotate but change color of shape. [ChameleonRotate]. Girgit i.e Chameleon is an animal that changes its color.&lt;/p&gt;
+
+&lt;p&gt;3&amp;gt; change it to complete new shape on rotate. Example… s_shape -&amp;gt; rotate makes it t-shape. Again rotate makes it L-shape. Add image for better understanding [EvilRotate]&lt;/p&gt;
+
+&lt;p&gt;Behaviour or Protocol?&lt;/p&gt;
+
+&lt;p&gt;Recap of elemets… s-shape, t-shape, regular-rotate, EvilRotate, ChameleonRotate&lt;/p&gt;
+
+&lt;p&gt;protocol wont help because all are shape structs
+behaviour? add behaviour on RegularShape and GirgitShape?&lt;/p&gt;
+
+&lt;p&gt;So, when to use Behaviour and Protocol?&lt;/p&gt;
+
+&lt;p&gt;Rule of thumb, when you have different structs, you need Protocol.
+Behaviour is added on Modules.&lt;/p&gt;
+
+&lt;p&gt;hirerchy -&amp;gt; same level -&amp;gt; t-shape, evil-shape&lt;/p&gt;
+
+&lt;p&gt;how to test? use Dialyzer&lt;/p&gt;</content><author><name>Sandesh</name></author><category term="elixir" /><category term="elixir" /><category term="polymorphism" /><category term="protocol" /><category term="behaviour" /><category term="dialyzer" /><summary type="html">Behaviour and Protocol in elixir. Polymorphism</summary></entry><entry><title type="html">tetrix in phoenix liveview</title><link href="http://www.sandeshsoni.com/building-tetris-in-elixir" rel="alternate" type="text/html" title="tetrix in phoenix liveview" /><published>2019-08-24T00:00:00+05:30</published><updated>2019-08-24T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/building-tetris-in-elixir</id><content type="html" xml:base="http://www.sandeshsoni.com/building-tetris-in-elixir">&lt;p&gt;I am building tetris-kachori, a tetris game for phoenix phrenzy competition.
+My journey building this game. Should attach a gif of game.
+How I started, what blogs and videos did I refer will add at the end of blog.&lt;/p&gt;
+
+&lt;script src=&quot;https://formulaeio.cdn.vooplayer.com/assets/vooplayer.js&quot;&gt;&lt;/script&gt;
+&lt;iframe allow=&quot;autoplay&quot; class=&quot;video-player-container vooplayer&quot; data-playerid=&quot;MTk5MTQz&quot; allowtransparency=&quot;true&quot; style=&quot;max-width:100%&quot; name=&quot;vooplayerframe&quot; allowfullscreen=&quot;true&quot; src=&quot;&quot; watch-type=&quot;&quot; url-params=&quot;&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt; &lt;/iframe&gt;</content><author><name>Sandesh</name></author><category term="phoenix" /><category term="liveview" /><category term="phrenzy" /><category term="tetris" /><summary type="html">I am building tetris-kachori, a tetris game for phoenix phrenzy competition. My journey building this game. Should attach a gif of game. How I started, what blogs and videos did I refer will add at the end of blog.</summary></entry><entry><title type="html">Getting started with phoenix liveview</title><link href="http://www.sandeshsoni.com/getting-started-with-live-view" rel="alternate" type="text/html" title="Getting started with phoenix liveview" /><published>2019-08-14T00:00:00+05:30</published><updated>2019-08-14T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/getting-started-with-live-view</id><content type="html" xml:base="http://www.sandeshsoni.com/getting-started-with-live-view">&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mix phx.new tabela
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def deps do
+  [
+      {:phoenix_live_view, github: &quot;phoenixframework/phoenix_live_view&quot;}
+        
+  ]
+  end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;generate secret token&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mix phx.gen.secret 32
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;add-token-to-config&quot;&gt;add token to config&lt;/h1&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# config/config.exs
+
+config :my_app, MyAppWeb.Endpoint,
+   live_view: [
+        signing_salt: &quot;SECRET_SALT&quot;
+           
+   ]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">mix phx.new tabela</summary></entry><entry><title type="html">OTP Basics with Elixir</title><link href="http://www.sandeshsoni.com/otp-basics" rel="alternate" type="text/html" title="OTP Basics with Elixir" /><published>2019-08-12T00:00:00+05:30</published><updated>2019-08-12T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/otp-basics</id><content type="html" xml:base="http://www.sandeshsoni.com/otp-basics">&lt;p&gt;We will see&lt;/p&gt;
+
+&lt;h1 id=&quot;send&quot;&gt;send&lt;/h1&gt;
+&lt;h1 id=&quot;receive&quot;&gt;receive&lt;/h1&gt;
+&lt;h1 id=&quot;process&quot;&gt;Process&lt;/h1&gt;
+&lt;h1 id=&quot;message-passing&quot;&gt;message passing&lt;/h1&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Send&lt;/p&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;morning&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Receive&lt;/p&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;morning&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;receive&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:greet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Good &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Process&lt;/p&gt;
+
+&lt;p&gt;spawn&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pid = spawn(fn -&amp;gt; IO.puts &quot;hello&quot; end)
+Process.whereis(pid)
+
+Process.alive?(pid)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;spawn with module&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;defmodule Foo do
+def bar do
+end
+end
+
+new_pid = spawn(Foo, :bar, [])
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Sandesh</name></author><category term="otp" /><category term="open-telecom-platform" /><summary type="html">We will see</summary></entry><entry><title type="html">Ecto Basics step by step</title><link href="http://www.sandeshsoni.com/ecto-example-step-by-step" rel="alternate" type="text/html" title="Ecto Basics step by step" /><published>2019-08-08T00:00:00+05:30</published><updated>2019-08-08T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/ecto-example-step-by-step</id><content type="html" xml:base="http://www.sandeshsoni.com/ecto-example-step-by-step">&lt;p&gt;Build a plain simple Ecto app step-by-step&lt;/p&gt;
+
+&lt;h1 id=&quot;create-a-new-project&quot;&gt;create a new project&lt;/h1&gt;
+
+&lt;p&gt;#validations
+#constraints&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/sandeshsoni/1047f9a2a35d2f02b93e84511194c84a.js?file=Newapp.ex&quot;&gt;&lt;/script&gt;
+
+&lt;h1 id=&quot;project&quot;&gt;Project&lt;/h1&gt;
+&lt;script src=&quot;https://gist.github.com/sandeshsoni/1047f9a2a35d2f02b93e84511194c84a.js?file=Product.ex&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;create-struct&quot;&gt;create struct&lt;/h2&gt;
+
+&lt;h2 id=&quot;make-schema&quot;&gt;make schema&lt;/h2&gt;
+
+&lt;h1 id=&quot;validations&quot;&gt;Validations?&lt;/h1&gt;
+&lt;h2 id=&quot;use-changeset&quot;&gt;use changeset&lt;/h2&gt;
+&lt;h3 id=&quot;create-changeset-for-update&quot;&gt;create changeset for update&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;
+  
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;two&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;two&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;defmodule&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bar&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;three&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;two&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;defp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;two&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Sandesh</name></author><category term="ecto" /><category term="database" /><category term="query" /><summary type="html">Build a plain simple Ecto app step-by-step</summary></entry><entry><title type="html">css selectors examples</title><link href="http://www.sandeshsoni.com/css-selector-examples" rel="alternate" type="text/html" title="css selectors examples" /><published>2019-03-08T00:00:00+05:30</published><updated>2019-03-08T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/css-selector-examples</id><content type="html" xml:base="http://www.sandeshsoni.com/css-selector-examples">&lt;h1 id=&quot;example-with-and-with-selectors&quot;&gt;Example with and with selectors&lt;/h1&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nc&quot;&gt;.class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.all-kids&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;one&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  .class &amp;gt; .child {
+  // two
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This selects only the children and not the grandchildren.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sibling&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;three&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3&gt;*&lt;/h3&gt;
+&lt;h3 id=&quot;before-after&quot;&gt;before, after&lt;/h3&gt;
+&lt;h3 id=&quot;hover&quot;&gt;hover&lt;/h3&gt;
+
+&lt;h3 id=&quot;nth-child&quot;&gt;nth-child&lt;/h3&gt;
+&lt;h3 id=&quot;first-child-last-child&quot;&gt;first-child, last child&lt;/h3&gt;</content><author><name></name></author><category term="css" /><category term="tutorial" /><category term="css-selectors" /><summary type="html">Example with and with selectors</summary></entry><entry><title type="html">what is webauthn</title><link href="http://www.sandeshsoni.com/intro" rel="alternate" type="text/html" title="what is webauthn" /><published>2019-03-04T00:00:00+05:30</published><updated>2019-03-04T00:00:00+05:30</updated><id>http://www.sandeshsoni.com/intro</id><content type="html" xml:base="http://www.sandeshsoni.com/intro">&lt;h1 id=&quot;what-is-webauthentication&quot;&gt;What is webauthentication?&lt;/h1&gt;
+
+&lt;p&gt;WebAuthn is a new W3C global standard for secure authentication.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Passwordless, biometrics-based re-authorization&lt;/li&gt;
+  &lt;li&gt;supported by all leading browsers and platforms.&lt;/li&gt;
+  &lt;li&gt;Firefox, Microsoft Edge and Google Chrome browser have implemented webauthn support.&lt;/li&gt;
+  &lt;li&gt;Android(7.0+), Windows 10 will have built-in support.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;websiteapps-that-have-implemented-fido&quot;&gt;Website/apps that have implemented FIDO&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dropbox, Github, and more&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;how-it-works&quot;&gt;How it works&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;acronyms&quot;&gt;Acronyms&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;FIDO - Fast Identity Online&lt;/li&gt;
+  &lt;li&gt;CTAP - Client To Authenticator Protocol&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;further-reading&quot;&gt;Further reading&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://duo.com/blog/web-authentication-what-it-is-and-what-it-means-for-passwords&quot;&gt;DUO blog about webauthn&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fidoalliance.org/fido2/&quot;&gt;FIDO alliance&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="webauthn" /><category term="fido2" /><category term="w3c" /><category term="fingerprint-authentication" /><summary type="html">What is webauthentication?</summary></entry></feed>

@@ -1,0 +1,49 @@
+<p>We will see</p>
+
+<h1 id="send">send</h1>
+<h1 id="receive">receive</h1>
+<h1 id="process">Process</h1>
+<h1 id="message-passing">message passing</h1>
+
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pid</span> <span class="o">=</span> <span class="n">self</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Send</p>
+
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pid</span> <span class="o">=</span> <span class="n">self</span><span class="p">()</span>
+<span class="n">send</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="p">{</span><span class="ss">:greet</span><span class="p">,</span> <span class="s2">"morning"</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>Receive</p>
+
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pid</span> <span class="o">=</span> <span class="n">self</span><span class="p">()</span>
+<span class="n">send</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="p">{</span><span class="ss">:greet</span><span class="p">,</span> <span class="s2">"morning"</span><span class="p">})</span>
+
+<span class="k">receive</span> <span class="k">do</span>
+<span class="p">{</span><span class="ss">:greet</span><span class="p">,</span> <span class="n">time</span><span class="p">}</span> <span class="o">-&gt;</span>
+<span class="no">IO</span><span class="o">.</span><span class="n">puts</span> <span class="s2">"Good </span><span class="si">#{</span><span class="n">time</span><span class="si">}</span><span class="s2">"</span>
+<span class="n">_</span> <span class="o">-&gt;</span>
+<span class="no">IO</span><span class="o">.</span><span class="n">puts</span> <span class="s2">"hello"</span>
+<span class="n">_</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Process</p>
+
+<p>spawn</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pid = spawn(fn -&gt; IO.puts "hello" end)
+Process.whereis(pid)
+
+Process.alive?(pid)
+</code></pre></div></div>
+
+<p>spawn with module</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defmodule Foo do
+def bar do
+end
+end
+
+new_pid = spawn(Foo, :bar, [])
+
+</code></pre></div></div>
+

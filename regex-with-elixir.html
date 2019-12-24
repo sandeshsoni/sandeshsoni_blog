@@ -1,0 +1,24 @@
+<p>I am building readrose app which is a quick bookmarking tool.
+I wanted automatic classification of url.</p>
+
+<p>As an end user, I will just bookmark the url and when I view it on my list of bookmarks, I expect them to be grouped together nicely and mention which tweets I have booked… which twitter handles or which blog posts.</p>
+
+<p>I decided to use Regex and this is the beginning of story.</p>
+
+<p>Regex in elixir is same as in any another languages.
+Elixir does have something additional that can help more.</p>
+
+<p>Let us play from the scratch.</p>
+
+<p><code class="language-plaintext highlighter-rouge">str1 = abc 123 456</code>
+I want number from the string.
+So, my regex will be <code class="language-plaintext highlighter-rouge">expr = r\d\d\d</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">str1 = abc 123 456</code>
+<code class="language-plaintext highlighter-rouge">str2 = abc 123-456</code>
+<code class="language-plaintext highlighter-rouge">str2 = abc 123=456</code></p>
+
+<p>So, if I bookmark a tweet, I will be able to see link to tweet as well as an individual link to author’ profile.</p>
+
+<p>references
+very useful youtube video, worth investing 46 minutes.</p>
