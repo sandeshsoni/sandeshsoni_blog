@@ -11,9 +11,6 @@
       "deploy": "gh-pages -d _site"
     },
     "author": "Sandesh Soni",
-"license": "ISC",
-    "bugs": {
-      "url": "https://github.com/sandeshsoni/sandeshsoni_blog/issues"
-    },
+    "license": "ISC",
     "homepage": "https://sandeshsoni.com"
 }
