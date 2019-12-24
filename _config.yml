@@ -22,7 +22,7 @@ kramdown:
 
   # theme: jekyll-theme-cayman
   # remote_theme: hanuman
-  theme: minima
+theme: minima
   # theme: hanuman
 
 plugins:
