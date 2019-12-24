@@ -2,10 +2,12 @@
 layout: post
 title: Understanding protocol and behaviours in Elixir with Tetris.
 author: sandeshsoni
+date: 2019-09-01 04:00:00
 tags: elixir polymorphism protocol behaviour dialyzer
 category: elixir
 thumbnail: tetris.png
 ---
+
 
 Behaviour and Protocol in elixir. Polymorphism
 
