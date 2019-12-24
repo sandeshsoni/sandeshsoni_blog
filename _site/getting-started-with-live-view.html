@@ -1,0 +1,25 @@
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mix phx.new tabela
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def deps do
+  [
+      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"}
+        
+  ]
+  end
+</code></pre></div></div>
+
+<p>generate secret token</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mix phx.gen.secret 32
+</code></pre></div></div>
+
+<h1 id="add-token-to-config">add token to config</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># config/config.exs
+
+config :my_app, MyAppWeb.Endpoint,
+   live_view: [
+        signing_salt: "SECRET_SALT"
+           
+   ]
+</code></pre></div></div>

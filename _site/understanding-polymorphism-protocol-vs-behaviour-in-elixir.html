@@ -1,0 +1,30 @@
+<p>Behaviour and Protocol in elixir. Polymorphism</p>
+
+<p>Understanding protocol and behaviours in Elixir with tetris.</p>
+
+<p>I have different kinds of Shapes including s_shape, box_shape, t-shape, etc. At the end, all are Shapes.</p>
+
+<p>I can have 3 modes of rotation.</p>
+
+<p>1&gt; Just rotate. same shape in different angle. [RegularRotate]</p>
+
+<p>2&gt; Rotate but change color of shape. [ChameleonRotate]. Girgit i.e Chameleon is an animal that changes its color.</p>
+
+<p>3&gt; change it to complete new shape on rotate. Example… s_shape -&gt; rotate makes it t-shape. Again rotate makes it L-shape. Add image for better understanding [EvilRotate]</p>
+
+<p>Behaviour or Protocol?</p>
+
+<p>Recap of elemets… s-shape, t-shape, regular-rotate, EvilRotate, ChameleonRotate</p>
+
+<p>protocol wont help because all are shape structs
+behaviour? add behaviour on RegularShape and GirgitShape?</p>
+
+<p>So, when to use Behaviour and Protocol?</p>
+
+<p>Rule of thumb, when you have different structs, you need Protocol.
+Behaviour is added on Modules.</p>
+
+<p>hirerchy -&gt; same level -&gt; t-shape, evil-shape</p>
+
+<p>how to test? use Dialyzer</p>
+

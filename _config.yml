@@ -34,8 +34,9 @@ kramdown:
 
 # theme: minima
 # theme: hanuman
-remote_theme: hanumana
-# remote_theme: "samanyougarg/hhanumana"
+# remote_theme: hanumana
+theme: minimal-mistakes-jekyll
+  # remote_theme: "samanyougarg/hhanumana"
 # https://github.com/samanyougarg/hanuman/blob/master/index.html
 # remote_theme: "mmistakes/minimal-mistakes@4.17.2"
 

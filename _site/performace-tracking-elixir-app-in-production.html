@@ -1,0 +1,54 @@
+<p>The tetris-Kachori app lags in production. I can feel the screen freezing for a fraction of time. Everything works smoothly in development.
+So I started to find ways to debug and understand what might be going wrong.</p>
+
+<p>The first thought, my app is taking more RAM.</p>
+
+<p>How much RAM my app consumes?
+Locally I can check using <code class="language-plaintext highlighter-rouge">top</code> and <code class="language-plaintext highlighter-rouge">htop</code> but can I check within the app?</p>
+
+<p>The first thing I came across, use below syntax.</p>
+
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:erlang</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>output as</p>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iex</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span> <span class="ss">:erlang</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span>
+<span class="p">[</span>
+<span class="ss">total:</span> <span class="mi">34089608</span><span class="p">,</span>
+<span class="ss">processes:</span> <span class="mi">6655800</span><span class="p">,</span>
+<span class="ss">processes_used:</span> <span class="mi">6654840</span><span class="p">,</span>
+<span class="ss">system:</span> <span class="mi">27433808</span><span class="p">,</span>
+<span class="ss">atom:</span> <span class="mi">654241</span><span class="p">,</span>
+<span class="ss">atom_used:</span> <span class="mi">636936</span><span class="p">,</span>
+<span class="ss">binary:</span> <span class="mi">2595088</span><span class="p">,</span>
+<span class="ss">code:</span> <span class="mi">12227925</span><span class="p">,</span>
+<span class="ss">ets:</span> <span class="mi">1348328</span>
+<span class="p">]</span>
+<span class="n">iex</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>or</p>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:erlang</span><span class="o">.</span><span class="n">system_info</span><span class="o">/</span><span class="mi">1</span>
+</code></pre></div></div>
+
+<p>So the conclusion, I need to collect metrics about machine and send it somewhere.. like Prometheus, DataDog, etc.</p>
+
+<p>How?</p>
+
+<p>use Telemetry and opencensus.
+Telemetry-metrics, <a href="https://github.com/beam-telemetry/telemetry_poller">Telemetry pooler</a>, <a href="https://github.com/opencensus-beam/opencensus_telemetry">Opencensus Telemetry</a>, oc_datadog, etc.
+Telemetry polling to send more information.
+I see possibility to send how many connections are open at the point.</p>
+
+<p>I can use DataDog and few other paid services.
+I read a few topics on ElixirForum mentioning integrating logging facilit of Elixir.</p>
+
+<p>I understand few people are using <code class="language-plaintext highlighter-rouge">Statix</code> + <code class="language-plaintext highlighter-rouge">Instruments</code></p>
+
+<p>The end output I expect, I should see metrics in understandable format.  how much RAM was consumed with number of open connections with time. And possibly mention github tag so I undertand which solution improved performance.</p>
+
+<p>Thats my journey so far.
+Exploring more.</p>
+
+<p>I will be reading <a href="https://www.erlang-in-anger.com/">Erlang In Anger</a></p>
+
