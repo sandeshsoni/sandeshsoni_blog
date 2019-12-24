@@ -19,11 +19,12 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-
+remote_theme: "hanuman"
 # theme: minima
-theme: hanuman
+# theme: hanuman
 
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
