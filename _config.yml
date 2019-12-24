@@ -20,7 +20,8 @@ kramdown:
   hard_wrap: false
 
 
-theme: minima
+  #theme: minima
+theme: hanuman
 
 plugins:
   - jekyll-feed
