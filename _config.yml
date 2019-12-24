@@ -5,10 +5,9 @@ description: >- # this means to ignore newlines until "baseurl:"
   Working remotely from Pune, India.
   
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.sandeshsoni.com" # te base hostname & protocol for your site, e.g. http://example.com
+url: "http://www.sandeshsoni.com" # te base hostname & protocol for your site, e.g. http://example.com
 email: hello@sandeshsoni.com
 twitter_username: iamsandeshsoni
-# twitter: iamsandeshsoni
 github_username:  sandeshsoni
 linkedin_username: sandeshsoni
 telegram_username: sandeshsoni
@@ -20,8 +19,8 @@ kramdown:
   input: GFM
   hard_wrap: false
 
+
 theme: minima
-  # theme: hanuman
 
 plugins:
   - jekyll-feed
@@ -37,9 +36,8 @@ jekyll_analytics:
     id: UA-135632177-1         # Required - replace with your tracking id
     anonymizeIp: false
 
-    # analytics_id: UA-135632177-1
 
-    permalink: none
+permalink: none
 show_excerpts: true
 
 # Exclude from processing.
@@ -53,5 +51,3 @@ show_excerpts: true
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
-theme: jekyll-theme-minimal
