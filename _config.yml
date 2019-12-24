@@ -34,7 +34,8 @@ kramdown:
 
 # theme: minima
 # theme: hanuman
-remote_theme: "hanuman"
+# remote_theme: "hanuman"
+remote_theme: "mmistakes/minimal-mistakes@4.17.2"
 
 plugins:
   - jekyll-remote-theme  
