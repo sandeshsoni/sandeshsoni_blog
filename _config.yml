@@ -12,6 +12,18 @@ github_username:  sandeshsoni
 linkedin_username: sandeshsoni
 telegram_username: sandeshsoni
 
+# Social
+facebook: iamsandeshsoni
+twitter: iamsandeshsoni
+github:  sandeshsoni
+
+#Additional Pages
+about: about
+contact: contact
+
+
+permalink: /:title
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
@@ -40,7 +52,6 @@ jekyll_analytics:
     anonymizeIp: false
 
 
-permalink: none
 show_excerpts: true
 
 # Exclude from processing.
