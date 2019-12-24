@@ -30,7 +30,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-analytics
-  - jekyll-paginate-v2
 
 sass:
     style: compressed
