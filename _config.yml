@@ -20,9 +20,9 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-remote_theme: "hanuman"
+  #remote_theme: "hanuman"
 # theme: minima
-# theme: hanuman
+theme: hanuman
 
 plugins:
   - jekyll-remote-theme
