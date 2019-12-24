@@ -8,7 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.sandeshsoni.com" # te base hostname & protocol for your site, e.g. http://example.com
 email: hello@sandeshsoni.com
 twitter_username: iamsandeshsoni
-twitter: iamsandeshsoni
+# twitter: iamsandeshsoni
 github_username:  sandeshsoni
 linkedin_username: sandeshsoni
 telegram_username: sandeshsoni
@@ -26,7 +26,6 @@ kramdown:
   # theme: hanuman
 
 plugins:
-  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
@@ -40,9 +39,9 @@ jekyll_analytics:
     id: UA-135632177-1         # Required - replace with your tracking id
     anonymizeIp: false
 
-analytics_id: UA-135632177-1
+    # analytics_id: UA-135632177-1
 
-permalink: none
+    permalink: /:title
 show_excerpts: true
 
 # Exclude from processing.
